@@ -30,7 +30,126 @@
         </div>
     </nav>
 
-   
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Welcome to My Personal Website!</h1>
+            <p class="hero-subtitle">Hello! I'm Saadet Azra Çelik</p>
+            <p class="hero-description">
+                Welcome to my personal website! I'm a passionate Geomatics Engineering student 
+                at Hacettepe University, exploring the fascinating world of technology, 
+                programming, and spatial data analysis.
+            </p>
+            <div class="hero-buttons">
+                <a href="background.html" class="btn btn-primary">Learn More About Me</a>
+                <a href="technologies.html" class="btn btn-secondary">My Skills</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="profile-card">
+                <div class="profile-image">👩‍💻</div>
+                <h3>Saadet Azra Çelik</h3>
+                <p>Geomatics Engineering Student</p>
+                <div class="profile-stats">
+                    <div class="stat">
+                        <span class="stat-number">4th</span>
+                        <span class="stat-label">Year Student</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">Hacettepe</span>
+                        <span class="stat-label">University</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section class="welcome-section">
+        <div class="container">
+            <h2>Welcome to My Digital Space!</h2>
+            <div class="welcome-content">
+                <div class="welcome-text">
+                    <p>
+                        Thank you for visiting my personal website! Here you can discover more about 
+                        my journey as a Geomatics Engineering student, explore the technologies I work with, 
+                        and get to know my interests and hobbies.
+                    </p>
+                    <p>
+                        From Capoeira and Scuba Diving to playing the Clarinet and reading Science Fiction, 
+                        I believe in maintaining a balance between academic pursuits and personal passions.
+                    </p>
+                </div>
+                <div class="welcome-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">🎓</div>
+                        <h3>Academic Journey</h3>
+                        <p>Discover my educational background and achievements</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💻</div>
+                        <h3>Technical Skills</h3>
+                        <p>Explore the technologies and tools I work with</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Personal Interests</h3>
+                        <p>Learn about my hobbies and extracurricular activities</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills">
+        <div class="container">
+            <h2>My Key Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <div class="skill-icon">🗺️</div>
+                    <h3>Geomatics</h3>
+                    <p>GIS, Remote Sensing, Spatial Analysis</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">💻</div>
+                    <h3>Programming</h3>
+                    <p>Python, JavaScript, Web Development</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">📊</div>
+                    <h3>Data Analysis</h3>
+                    <p>Statistical Analysis, Data Visualization</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">🎨</div>
+                    <h3>Creative Skills</h3>
+                    <p>Music, Sports, Design Thinking</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <h2>My Location</h2>
+            <p class="map-description">I'm currently based in Turkey, studying at Hacettepe University</p>
+            <div id="map" class="map"></div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Let's Connect!</h2>
+            <p>Feel free to explore my website and don't hesitate to reach out if you'd like to connect!</p>
+            <div class="cta-buttons">
+                <a href="social.html" class="btn btn-primary">Get in Touch</a>
+                <a href="background.html" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -40,7 +159,39 @@
     </footer>
 
     <script>
-    
+        // OpenLayers Harita Oluşturma
+        const map = new ol.Map({
+            target: 'map',
+            layers: [
+                new ol.layer.Tile({
+                    source: new ol.source.OSM()
+                })
+            ],
+            view: new ol.View({
+                center: ol.proj.fromLonLat([32.8, 39.9]), // Ankara koordinatları
+                zoom: 8
+            })
+        });
+
+        // Marker ekleme
+        const marker = new ol.Feature({
+            geometry: new ol.geom.Point(ol.proj.fromLonLat([32.8, 39.9]))
+        });
+
+        const vectorSource = new ol.source.Vector({
+            features: [marker]
+        });
+
+        const vectorLayer = new ol.layer.Vector({
+            source: vectorSource,
+            style: new ol.style.Style({
+                image: new ol.style.Icon({
+                    anchor: [0.5, 1],
+                    src: 'https://openlayers.org/en/latest/examples/data/icon.png'
+                })
+            })
+        });
+
         map.addLayer(vectorLayer);
     </script>
 </body>
