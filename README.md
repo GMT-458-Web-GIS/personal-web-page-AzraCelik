@@ -36,10 +36,3 @@ Bu projede AI'dan öğrenilen konular:
 
 **Toplam AI kullanım süresi**: Yaklaşık 2 saat
 
-## Kurulum
-1. Projeyi klonlayın
-2. Tüm dosyaları aynı klasörde bulundurun
-3. `index.html` dosyasını web tarayıcısında açın
-
-## Lisans
-Bu proje eğitim amaçlı oluşturulmuştur.
