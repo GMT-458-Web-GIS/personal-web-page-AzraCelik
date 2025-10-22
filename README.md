@@ -36,3 +36,5 @@ Bu projede AI'dan öğrenilen konular:
 
 **Toplam AI kullanım süresi**: Yaklaşık 2 saat
 
+**Web Sitesi Linki**
+https://azracelik.github.io/SaadetAzraCelik_Personal_website/
